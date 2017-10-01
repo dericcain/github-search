@@ -1,5 +1,5 @@
 # Shipt Github User Search
-[https://shipit.dericcain.com](https://shipit.dericcain.com)
+[https://shipt.dericcain.com](https://shipt.dericcain.com)
 
 [![Build Status](https://semaphoreci.com/api/v1/dericcain/github-search/branches/master/badge.svg)](https://semaphoreci.com/dericcain/github-search)
 ## Preface
