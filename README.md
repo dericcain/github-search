@@ -1,5 +1,9 @@
 # Shipt Github User Search
+[https://shipit.dericcain.com](https://shipit.dericcain.com)
+
 [![Build Status](https://semaphoreci.com/api/v1/dericcain/github-search/branches/master/badge.svg)](https://semaphoreci.com/dericcain/github-search)
+## Preface
+All of the decisions I made are solely based on preference. I do not have any "sacred cows" when it comes to technology choices, styles, tabs vs spaces, etc. Well, maybe the last one I do because, well... spaces are far superior to tabs 😅. Basically, I am open to trying different things, learning different things and I always want be open-minded and flexible.
 
 ## Problem
 Shipt needs a way to quickly and easily search for Github users and a user's followers.
@@ -9,10 +13,10 @@ Create a single page application, utilizing the Github API, that will perform a 
 
 ## UX/Branding
 #### Mockups
-I started off by creating mockups as this really helps with thinking about the user experience before I start to code. You can see them here:
-- [Landing](mockups/landing-mockup.jpg)
-- [Search](mockups/search-mockup.jpg)
-- [Results](mockups/results-mockup.jpg)
+I started off by creating mockups as this really helps with thinking about the user experience before I start to code. This is not a necessity, but can definitely help. You can see them here:
+- [Landing](https://www.dropbox.com/s/i8bsu42zwymmm3e/landing-mockup.jpg?dl=0)
+- [Search](https://www.dropbox.com/s/jbcwwrv1iizoffi/search-mockup.jpg?dl=0)
+- [Results](https://www.dropbox.com/s/r25hf7ohvmynqy0/results-mockup.jpg?dl=0)
  
 #### Branding
 For branding, since this is a Shipt product, I totally chose to use Shipt's branding! I relied heavily on the [Help](http://help.shipt.com/) page for style guidelines 😄. 
@@ -23,18 +27,25 @@ For branding, since this is a Shipt product, I totally chose to use Shipt's bran
 I made the decision to use [Create React App](https://github.com/facebookincubator/create-react-app) for this project because it makes it really easy to get up and going with a React, with very little (if any) configuration needed.
 
 #### Mobx
-For state management, I chose to use Mobx because it is a real joy to work with. Coming from a more Object Oriented background, Mobx seems to resonate a little better to me than Redux. And for a project this size, it also reduces a lot of boilerplate and scales really well. With that said, there is nothing wrong with Redux and I do admire its more functional approach.
+For state management, I chose to use Mobx because it is a real joy to work with. Coming from a more Object Oriented background, Mobx resonates a little better with me than Redux. And for a project this size, it also reduces a lot of boilerplate and scales really well. With that said, there is nothing wrong with Redux and I do admire its more functional approach and for larger projects, it may make more sense.
 
 #### Styled Components
 The only other non-dev dependency, in terms of code, is [Styled Components](https://www.styled-components.com). I started using Style Components about 2 months ago and I absolutely love it! It makes stying components in React so much easier, better, more fun 😃 than some other alternatives. One thing that I noticed when using Styled Components is that it forces me to really think about building components that are modular and independent. Now, one con (if you want to call it that) is it leaves a lot of options open for how to structure your styled components. Essentially, the components that are styled with Styled Components are just blocks of CSS. Here are some scenarios (definitely not all):
 1. Put each styled component in its own file. This keeps components separate but also adds a ton of additional, really small, files to the project.
 2. Leave the styled components in the file where they are being used. This makes sense in terms of "component architecture". However, it can look a little messy when you have your main component and, what seems to be, a bunch of random CSS blocks below that component (or above depending how you structure it).
-3. Create one file per component category that holds all of the styled components. For instance, if we have a `Search` component, we may also have an `Input` and `Results` and a folder called `search`. In that folder, we have a file called `styled-components.js` (or something else) where all of the components reside.
-
+3. Create one file per component category that holds all of the styled components. For instance, if we have a `Search` component, we may also have an `Input` and `Results` and a folder called `search`. In that folder, we have a file called `styled-components.js` (or something else) where all of the components reside. So, like this:
+```
+|-- components
+|   |-- search
+|   |   |-- Search.js
+|   |   |-- Results.js
+|   |   |-- Input.js
+|   |   |-- styled-components.js // Here they are!
+```
 I tried #3 for this project and I do like how it looks/feels. I will keep experimenting until I find something that I just love.
 
 #### Sentry.io
-For error tracking, I used [Sentry.io](https://sentry.io). I have used Rollbar before, but I am much happier with Sentry. It has some really cool features (like user context) that Rollbar does not have (or maybe not as obvious). Also, it seems to make it a lot easier to see where the error occurred, when there is one. And, one more feature, it can create an issue in Gitlab automatically when there is an error (we use Gitlab where I currently work).
+For error tracking, I used [Sentry.io](https://sentry.io). I have used Rollbar before, but I am much happier with Sentry. It has some really cool features (like user context) that Rollbar does not have (or maybe not as obvious). Also, it seems to make it a lot easier to see where the error occurred, when there is one. And, one more feature, it can create an issue in Gitlab automatically when there is an error (we use Gitlab where I currently work but I'm sure it works with Github as well).
 
 #### Semaphore CI
 I am using [Semaphore CI](https://semaphoreci.com) for Continuous Integration/Continuous Deployment. They make it super easy to integrate with Github and also AWS S3. I do not even have to create any config files. One really neat feature is that if there is a problem with a deployment, they create a one-time SSH session where you can log in and see your build and troubleshoot it. Pure genius!
