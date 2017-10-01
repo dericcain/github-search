@@ -2,7 +2,7 @@
 
 exports[`<Result /> should match the snapshot 1`] = `
 <div
-  className="sc-bxivhb isZioG"
+  className="sc-bxivhb eEWzns"
   onClick={[Function]}
 >
   <img
@@ -17,7 +17,7 @@ exports[`<Result /> should match the snapshot 1`] = `
   <img
     alt="View github.user"
     className="search-result-icon"
-    src="search-icon.svg"
+    src="search-icon.png"
   />
 </div>
 `;
