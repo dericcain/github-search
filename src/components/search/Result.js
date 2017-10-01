@@ -2,7 +2,7 @@ import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 
 import { Avatar, Name, ResultWrapper } from './';
-import searchIcon from '../../assets/images/search-icon.svg';
+import searchIcon from '../../assets/images/search-icon.png';
 
 @inject('searchStore')
 @observer

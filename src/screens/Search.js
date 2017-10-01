@@ -5,8 +5,8 @@ import { AppContainer, Header, GithubLogo, ShiptLogo, Title } from '../component
 import { InputSpinner } from '../components/shared';
 import { SearchInput, Results, SearchContainer, SearchIcon } from '../components/search';
 import UserInfo from '../components/user/UserInfo';
-import githubLogo from '../assets/images/github-logo.svg';
-import searchIcon from '../assets/images/search-icon.svg';
+import githubLogo from '../assets/images/github-logo.png';
+import searchIcon from '../assets/images/search-icon-large.png';
 import shiptLogo from '../assets/images/shipt-logo.png';
 
 @inject('searchStore')

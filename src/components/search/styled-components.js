@@ -34,9 +34,16 @@ export const ResultsContainer = styled.div`
 export const ResultWrapper = styled.div`
   padding: 12px;
   display: flex;
+  position: relative;
 
   .search-result-icon {
     display: none;
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    top: 50%;
+    right: 12px;
+    margin-top: -9px;
   }
 
   &:hover {
