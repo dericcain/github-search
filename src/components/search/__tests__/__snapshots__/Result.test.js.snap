@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Result /> should match the snapshot 1`] = `
+<div
+  className="sc-bxivhb isZioG"
+  onClick={[Function]}
+>
+  <img
+    className="sc-ifAKCX yqupf"
+    src="https://yahoo.com"
+  />
+  <p
+    className="sc-EHOje dYbFBX"
+  >
+    github.user
+  </p>
+  <img
+    alt="View github.user"
+    className="search-result-icon"
+    src="search-icon.svg"
+  />
+</div>
+`;
