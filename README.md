@@ -2,6 +2,15 @@
 [https://shipt.dericcain.com](https://shipt.dericcain.com)
 
 [![Build Status](https://semaphoreci.com/api/v1/dericcain/github-search/branches/master/badge.svg)](https://semaphoreci.com/dericcain/github-search)
+
+## Installation
+Clone it, install it, run it, test it, build, deploy it 🚀 (this assumes that you have [Yarn](https://yarnpkg.com/en/) installed)
+```
+git clone https://github.com/dericcain/github-search.git && cd github-search && yarn
+yarn start // starts Webpack dev server
+yarn test // starts the Jest test runner
+yarn build // creates a './build' folder for deployment
+```
 ## Preface
 All of the decisions I made are solely based on preference. I do not have any "sacred cows" when it comes to technology choices, styles, tabs vs spaces, etc. Well, maybe the last one I do because, well... spaces are far superior to tabs 😅. Basically, I am open to trying different things, learning different things and I always want be open-minded and flexible.
 
@@ -44,7 +53,7 @@ The only other non-dev dependency, in terms of code, is [Styled Components](http
 ```
 I tried #3 for this project and I do like how it looks/feels. I will keep experimenting until I find something that I just love.
 
-#### Sentry.io
+#### Sentry
 For error tracking, I used [Sentry.io](https://sentry.io). I have used Rollbar before, but I am much happier with Sentry. It has some really cool features (like user context) that Rollbar does not have (or maybe not as obvious). Also, it seems to make it a lot easier to see where the error occurred, when there is one. And, one more feature, it can create an issue in Gitlab automatically when there is an error (we use Gitlab where I currently work but I'm sure it works with Github as well).
 
 #### Semaphore CI
@@ -55,13 +64,19 @@ Amazon Web Services makes it really easy to get a static site live on the web. I
 
 Now, I am not sure if I would use this for a large project. However, I am stating this simply as a lack of research on my part. They may be well suited for that. I would just think that EC2 may be a better option, given that is what the service is built to do.
 
-#### Things left out
+#### Some extra stuff
+A couple of things about performance. For the search request, I am memoizing the results to save on API calls. Also, I am debouncing the search so that if a user us a speed typer and they type out `gaearon` really quick, there may actually only be one request 👌
+
+#### Things left out/Things would have done differently considering
+One thing you will notice is that I do not use comments on all of my code. I used to document every variable and method but then I learned how to name my variables and methods so that they are self-documenting (at least I try to do this). If Shipt is a shop that wants every bit of code documented, I do not mind doing that at all.
+
 Given more time or a larger project scope, I would have added a couple of extra things. I would have quite possibly just started the project from scratch with a custom Webpack config tailored specifically for the project. That is not to take away from Create React App - it is an amazing project and makes it so easy to get started fast.
 
 I would have also used a couple of Github integrations. One being [Snyk](https://snyk.io/) for dependency security. Snyk is great at letting you know when one of your project's dependencies has a known vulnerability. I have even had Snyk make a PR to fix a known vulnerability. 
 
-The other service I would use is [Coveralls](https://coveralls.io/). Coveralls aids in communicating the amount of code that is covered with the project's tests. Another really cool thing it does is with each PR, Coveralls can run the PR's test coverage against the current test coverage and report the difference if there is any, which is very helpful for maintaining good test coverage.
+For a truly production application, there would be better test coverage and this is where [Coveralls](https://coveralls.io/) would assist. Coveralls aids in communicating the amount of code that is covered with the project's tests. Another really cool thing it does is with each PR, Coveralls can run the PR's test coverage against the current test coverage and report the difference if there is any, which is very helpful for maintaining good test coverage.
 
+Lastly, if this was an app that was used all the time and we really wanted to sweat over performance, we could use the Service Worker to cache requests for a user in case they typically search for the same user more than once.
 
 ## Additional Links
 - Most of the projects that I work on are private repos for my current employer, but here is a project that I was working on (we have 4-month-old so time has been limited lately) [Securely](https://github.com/securely-app/web).
